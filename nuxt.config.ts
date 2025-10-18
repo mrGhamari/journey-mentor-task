@@ -11,6 +11,6 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['@/components/ui'],
   },
-  modules: ['@vueuse/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/fonts'],
   css: ['@/assets/main.css'],
 });
