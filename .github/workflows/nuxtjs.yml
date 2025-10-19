@@ -1,4 +1,6 @@
+# .github/workflows/deploy-pages.yml
 name: Deploy to GitHub Pages (Nuxt 4)
+
 on:
   push:
     branches: [ main ]
@@ -10,14 +12,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NUXT_APP_BASE_URL: "/REPO-NAME/"
+      NUXT_PUBLIC_BASE_URL: "/journey-mentor-task/"
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
@@ -26,7 +28,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npx nuxt build --preset github_pages
+      - run: npx nuxt build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./.output/public
