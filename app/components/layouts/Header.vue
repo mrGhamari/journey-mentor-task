@@ -6,7 +6,7 @@
         <strong>Journey Mentor</strong>
       </div>
     </div>
-    change theme button
+    <theme-button />
   </header>
 </template>
 

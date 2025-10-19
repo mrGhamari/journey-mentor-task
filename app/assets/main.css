@@ -45,6 +45,27 @@
   --ft: 56px;
 }
 
+/* Dark theme overrides */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0b1220;
+  --fg: #e6edf3;
+  --muted: #94a3b8;
+  --surface: #0f172a;
+  --surface-alt: #1f2937;
+  --accent: #334155;
+  --br: #263241;
+  /* keep brand color; adjust ring/hover for dark surfaces */
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+
+  --ring: color-mix(in oklab, var(--primary) 50%, white 50%);
+  --hover: color-mix(in oklab, var(--surface-alt) 75%, white 25%);
+  --focus: var(--primary);
+  --link: var(--primary);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -126,7 +147,7 @@ a:hover {
 .input,
 .select,
 textarea {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--br);
   border-radius: var(--radius-sm);
   padding: 0.55rem 0.7rem;
@@ -194,6 +215,9 @@ textarea {
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
 }
+[data-theme='dark'] .header {
+  background: color-mix(in oklab, var(--bg) 80%, black 20%);
+}
 .header a {
   color: var(--fg);
   text-decoration: none;
@@ -220,6 +244,9 @@ textarea {
 
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+[data-theme='dark'] .footer {
+  background: color-mix(in oklab, var(--bg) 80%, black 20%);
 }
 
 .footer a {
